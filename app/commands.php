@@ -7,9 +7,15 @@ use Huxtable\Command;
  *   will be registered automatically
  */
 
-// $commands[] = new Command('hello', 'Say hello', function($who=null)
-// {
-// 	return "Hello, " . (is_null($who) ? getenv('USER') : $who) . '.';
-// });
+$testArgs = new Command('test-args', 'Use for testing arguments', function($required, $optional='')
+{
+	var_dump($this->isSetOption('a'));
+	print_r($this);
+});
+	$testArgs->registerOption('a');
+	$testArgs->registerOption('b');
+	$testArgs->registerOption('word');
+
+$commands[] = $testArgs;
 
 ?>
