@@ -7,15 +7,22 @@ use Huxtable\Command;
  *   will be registered automatically
  */
 
-$testArgs = new Command('test-args', 'Use for testing arguments', function($required, $optional='')
+$example = new Command('example', 'An example command', function($required, $optional='')
 {
-	var_dump($this->isSetOption('a'));
-	print_r($this);
-});
-	$testArgs->registerOption('a');
-	$testArgs->registerOption('b');
-	$testArgs->registerOption('word');
+	echo 'This is an example command.' . PHP_EOL;
 
-$commands[] = $testArgs;
+	var_dump( $this->isSetOption( 'a' ) );
+	var_dump( $this->isSetOption( 'b' ) );
+	var_dump( $this->isSetOption( 'word' ) );
+
+	echo "required: {$required}" . PHP_EOL;
+	echo "optional: {$optional}" . PHP_EOL;
+});
+
+$example->registerOption('a');
+$example->registerOption('b');
+$example->registerOption('word');
+
+// $commands[] = $example;
 
 ?>
