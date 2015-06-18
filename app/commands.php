@@ -9,14 +9,19 @@ use Huxtable\Command;
 
 $example = new Command('example', 'An example command', function($required, $optional='')
 {
-	echo 'This is an example command.' . PHP_EOL;
+	echo 'This is an example command.' . PHP_EOL . PHP_EOL;
 
-	var_dump( $this->isSetOption( 'a' ) );
-	var_dump( $this->isSetOption( 'b' ) );
-	var_dump( $this->isSetOption( 'word' ) );
+	echo 'OPTIONS' . PHP_EOL;
 
-	echo "required: {$required}" . PHP_EOL;
-	echo "optional: {$optional}" . PHP_EOL;
+	echo '       -a   ' . ( $this->getOptionValue( 'a' ) ? 'true' : 'false' ) . PHP_EOL;
+	echo '       -b   ' . ( $this->getOptionValue( 'b' ) ? 'true' : 'false' ) . PHP_EOL;
+	echo '   --word   ' . ( $this->getOptionValue( 'word' ) ? 'true' : 'false' ) . PHP_EOL . PHP_EOL;
+
+	echo 'ARGUMENTS' . PHP_EOL;
+
+	echo '  required  ' . $required . PHP_EOL;
+	echo '  optional  ' . $optional . PHP_EOL . PHP_EOL;
+
 });
 
 $example->registerOption('a');
@@ -24,5 +29,3 @@ $example->registerOption('b');
 $example->registerOption('word');
 
 // $commands[] = $example;
-
-?>
