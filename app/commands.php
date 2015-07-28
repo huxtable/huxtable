@@ -28,4 +28,6 @@ $example->registerOption('a');
 $example->registerOption('b');
 $example->registerOption('word');
 
-// $commands[] = $example;
+$commands[] = $example;
+
+?>
