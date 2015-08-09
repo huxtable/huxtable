@@ -47,7 +47,7 @@ foreach( $autoload as $module => $path )
 /*
  * App configuration
  */
-$app = new Huxtable\Application( $config['name'], $config['version'], $config['php-min'] );
+$app = new Hux\Application( $config['version'], $config['php-min'] );
 
 /*
  * Register commands

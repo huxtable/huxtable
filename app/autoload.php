@@ -2,6 +2,8 @@
 
 return array
 (
+	'Hux' => 'src/Hux',
+
 	/*
 	 Third-party dependencies
 	 */
